@@ -1,0 +1,11 @@
+.crumb {
+  padding: 5px;
+  cursor: pointer;
+  border-radius: 5px;
+  display: inline-block;
+}
+
+.crumb:hover {
+  background-color: lightgray;
+  text-decoration: underline;
+}

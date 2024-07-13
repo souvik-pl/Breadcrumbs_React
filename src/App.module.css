@@ -1,0 +1,35 @@
+.container {
+  width: 700px;
+  height: 500px;
+  margin: 100px;
+}
+
+.breadcrumb {
+  border-bottom: 1px solid black;
+  padding-bottom: 5px;
+}
+
+.folderContainer {
+  margin-top: 20px;
+}
+
+.folder {
+  margin-top: 5px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: default;
+  border-radius: 5px;
+  padding-left: 10px;
+}
+
+.folder:hover {
+  background-color: lightgray;
+}
+
+.emptyFolder {
+  padding-top: 50px;
+  display: flex;
+  justify-content: center;
+}
