@@ -1,14 +1,16 @@
-import { BreadcrumbProps } from "./common/common.type";
+import { BreadcrumbContext } from "./common/BreadcrumbContext";
+import { BreadcrumbsProps } from "./common/common.type";
 import styles from "./Breadcrumbs.module.css";
-import React from "react";
 
-function Breadcrumbs({ children }: BreadcrumbProps) {
+function Breadcrumbs(props: BreadcrumbsProps) {
+  const { children, onSelect } = props;
+  const crumbCount = children.length;
   return (
-    <div className={styles.container}>
-      {children.map((child, index) => (
-        <React.Fragment key={index}>{child} &gt;</React.Fragment>
-      ))}
-    </div>
+    <BreadcrumbContext.Provider value={{ onSelect, crumbCount }}>
+      <nav aria-label="Breadcrumb">
+        <ul className={styles.container}>{children}</ul>
+      </nav>
+    </BreadcrumbContext.Provider>
   );
 }
 

@@ -44,11 +44,9 @@ function App() {
   return (
     <div className={styles.container}>
       <div className={styles.breadcrumb}>
-        <Breadcrumbs>
-          {breadcrumbList.map((folder) => (
-            <Crumb key={folder.id} clickHandler={() => openFolder(folder.id)}>
-              {folder.name}
-            </Crumb>
+        <Breadcrumbs onSelect={openFolder}>
+          {breadcrumbList.map((folder, index) => (
+            <Crumb key={folder.id} label={folder.name} id={folder.id} index={index} />
           ))}
         </Breadcrumbs>
       </div>

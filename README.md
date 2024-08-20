@@ -22,11 +22,9 @@ const App = () => {
   };
 
   return (
-    <Breadcrumbs>
-      {breadcrumbList.map((folder) => (
-        <Crumb key={folder.id} clickHandler={() => openFolder(folder.id)}>
-          {folder.name}
-        </Crumb>
+    <Breadcrumbs onSelect={openFolder}>
+      {breadcrumbList.map((folder, index) => (
+        <Crumb key={folder.id} label={folder.name} id={folder.id} index={index} />
       ))}
     </Breadcrumbs>
   );
@@ -43,25 +41,22 @@ The Crumb component represents an individual breadcrumb item.
 
 ```typescript
 export type CrumbProps = {
-  clickHandler: () => void;
-  children: string;
+  id: string;
+  label: string;
+  index: number;
 };
 ```
-
-- `clickHandler`: A function to be called when the breadcrumb item is clicked.
-- `children`: The name of the breadcrumb item (string).
 
 ### `Breadcrumbs`
 
 The Breadcrumbs component wraps around multiple `Crumb` components.
 
 ```typescript
-export type BreadcrumbProps = {
+export type BreadcrumbsProps = {
   children: JSX.Element[];
+  onSelect: (crumbId: string) => void;
 };
 ```
-
-- `children`: An array of `Crumb` components.
 
 ## Installation
 

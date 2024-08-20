@@ -1,8 +1,15 @@
-export type CrumbProps = {
-  clickHandler: () => void;
-  children: string;
+export type BreadcrumbsProps = {
+  children: JSX.Element[];
+  onSelect: (crumbId: string) => void;
 };
 
-export type BreadcrumbProps = {
-  children: JSX.Element[];
+export type CrumbProps = {
+  id: string;
+  label: string;
+  index: number;
+};
+
+export type BreadcrumbContextType = {
+  crumbCount: number;
+  onSelect: (crumbId: string) => void;
 };
